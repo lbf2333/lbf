@@ -1,0 +1,87 @@
+/* pages/login/login.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+  /* justify-content: center; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.bg{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+.login-container {
+  position: absolute;
+  /* width: 524rpx; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  overflow: hidden;
+}
+
+.login-container .logo {
+  margin-top: 72rpx;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 100%;
+  background: #fff;
+}
+
+.text {
+  margin-top: 56rpx;
+  /* margin-bottom: 64rpx; */
+  overflow: hidden;
+  text-align: center;
+}
+
+.text text {
+  display: block;
+  font-size: 28rpx;
+  color: rgba(170, 171, 173, 1);
+}
+
+.text .title {
+  color:rgba(84,83,83,1);
+  font-size: 40rpx;
+  font-weight:bold;
+  margin-bottom: 30rpx;
+}
+.text .title + .title{
+  margin-bottom: 106rpx;
+}
+
+.btn-box {
+  width: 616rpx;
+  height: 264rpx;
+  margin-bottom: 100rpx;
+  position: relative;
+}
+
+.btn-box image{
+  position: absolute;
+  width: 616rpx;
+  height: 264rpx;
+}
+
+button {
+  position: absolute;
+  width: 528rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius:10rpx;
+  padding: 0;
+  top:72rpx;
+  left: 44rpx;
+  color: #fff;
+  border: none;
+  text-align: center;
+  font-size: 36rpx;
+  letter-spacing:10rpx;
+}

@@ -1,0 +1,115 @@
+/* pages/my/my.wxss */
+.my-data{
+  margin: 20rpx 10%;
+}
+.my-data .my-head-bg{
+  margin-top:21rpx; 
+  width:180rpx;
+  height:180rpx;
+  margin: 0 auto ;
+  position: relative;
+}
+.my-data .my-head-img>image{
+  width: 100%;
+  height: 100% 
+}
+.my-data .my-head-img{
+  width:180rpx;
+  height:180rpx;
+  border-radius:50%;
+  overflow: hidden;
+  margin: 0 auto ;
+}
+.my-data .my-head-change{
+  width:46rpx;
+  height:46rpx;
+  position: absolute;
+  z-index: 100;
+  right: 0;
+  bottom: 0;
+}
+.my-data .my-head-change>image{
+  width: 100%;
+  height: 100%;
+}
+.my-data .my-name{
+  margin-top:31rpx; 
+  text-align: center;
+  font-size: 30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(48,48,48,1);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.my-data .my-flex-item{
+  display: flex;
+  margin: 91rpx 0 62rpx;
+}
+.my-data .my-flex-item>view{
+  text-align: center
+}
+.my-data .my-collect{
+  width: 50%;
+}
+.my-data .my-address{
+  width: 50%
+}
+.my-data .my-flex-item>view>text:nth-child(1){
+  font-size:30rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:#919191;
+  display: block
+}
+.my-data .my-flex-item>view>text:nth-child(2){
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(91,91,91,1);
+  display: block
+}
+.my-data .my-subscribe{
+  background:rgba(255,255,255,1);
+  box-shadow:2px 7px 35px 5px rgba(24,24,24,0.08);
+  border-radius:8px;
+  height:180rpx;
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+}
+.my-data .my-subscribe>view{
+  text-align: center;
+  margin:39rpx 0
+}
+.my-data .subscribe-ing{
+  width: 50%
+}
+.my-data .subscribe-success{
+  width: 50%
+}
+.my-data .subscribe-bg{
+  width:60rpx;
+  height:60rpx;
+  margin: 0 auto 
+}
+.my-data .subscribe-bg>image{
+  width: 100%;
+  height: 100%
+}
+.my-data .my-subscribe text{
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(69,69,69,1)
+}
+.my-data .separator{
+  position: absolute;
+  left: 50%;
+  width: 2rpx;
+  height:79rpx;
+  background-color:#BFBFBF;
+  box-shadow:2px 7px 35px 5px rgba(24,24,24,0.08);
+  opacity:0.5;
+}
+    

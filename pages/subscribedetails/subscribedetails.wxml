@@ -1,0 +1,214 @@
+<!--pages/subscribedetails/subscribedetails.wxml-->
+<wxs src="../../utils/filter.wxs" module='filter' />
+<view>
+  <view class='subscribedetails-bg'>
+    <!-- 从未发货 -->
+    <block wx:if="{{magazineData.status == 1}}">
+      <view class='send-time'>
+        <text class='send-now-time'>本期： 将于{{filter.formatDate2(magazineData.nextDeliveryTime)}}左右出版</text>
+        <!-- {{magazineData.thisTimes==0?magazineData.startPeriod:magazineData.thisTimes}}期</text>
+        <text class='send-next-time-x'> -->
+
+      </view>
+      <view class='send-img'>
+        <image src='/images/error01.png'></image>
+      </view>
+    </block>
+    <!-- 已发货 -->
+    <block wx:if="{{magazineData.status == 2}}">
+      <view class='send-time'>
+        <text class='send-now-time'>本期：已出版</text>
+        <!-- {{magazineData.thisTimes}}期  -->
+
+        <text class='send-next-time'>下期：将于{{filter.formatDate2(magazineData.nextDeliveryTime)}}左右出版</text>
+      </view>
+      <view class='send-img'>
+        <image src='/images/car02.png'></image>
+      </view>
+    </block>
+    <!-- 全部已完成 -->
+    <block wx:elif="{{magazineData.status == 3||magazineData.status == 4}}">
+      <view class='send-time'>
+        <text class='send-success'>全部出版完成</text>
+      </view>
+      <view class='send-img'>
+        <image src='/images/success01.png'></image>
+      </view>
+    </block>
+    <image src='/images/subscribe-bg.png'></image>
+  </view>
+  <!-- 从未发货 -->
+  <block wx:if="{{magazineData.status == 1}}">
+    <view class='express-information-no'>
+      <view class='consignee'>
+        <view class='order-img'>
+          <image src='/images/address01.png'></image>
+        </view>
+        <text>收货人：{{address.parentName}}</text>
+        <view class='order-img-phone'>
+          <image src='/images/phone01.png'></image>
+        </view>
+        <view>{{address.parentMobile}}</view>
+      </view>
+      <view class='address'>
+        <view>收货地址：</view>
+        <text>{{address.address}}</text>
+      </view>
+      <view class='people'>
+        <view class='order-img'>
+          <image src='/images/people01.png'></image>
+        </view>
+        <text>{{address.schoolName}}</text>
+      </view>
+      <view class='grade-name'>
+        <text>{{address.klass}}</text>
+        <text>{{address.name}}</text>
+      </view>
+    </view>
+  </block>
+  <!-- 已经开始发货 -->
+  <block wx:if="{{magazineData.status == 2}}">
+    <view class='order-state'>
+      <view>
+        <view class='order-img'>
+          <image src='/images/car01.png'></image>
+        </view>
+      </view>
+      <view class='express' bindtap="goRecord">
+        <text class='express-error'>查看往期出版记录</text>
+      </view>
+      <view class='check-next'>
+        <text class='arrow'></text>
+      </view>
+    </view>
+    <view class='express-information'>
+      <view class='consignee'>
+        <view class='order-img'>
+          <image src='/images/address01.png'></image>
+        </view>
+        <text>收货人：{{address.name}}</text>
+        <view class='order-img-phone'>
+          <image src='/images/phone01.png'></image>
+        </view>
+        <view>{{address.parentMobile}}</view>
+      </view>
+      <view class='address'>
+        <view>收货地址：</view>
+        <text>{{address.address}}</text>
+      </view>
+      <view class='people'>
+        <view class='order-img'>
+          <image src='/images/people01.png'></image>
+        </view>
+        <text>{{address.schoolName}}</text>
+      </view>
+      <view class='grade-name'>
+        <text>{{address.klass}}</text>
+        <text>{{address.parentName}}</text>
+      </view>
+    </view>
+  </block>
+  <!-- 全部发货完成 -->
+  <block wx:if="{{magazineData.status == 3||magazineData.status == 4}}">
+    <view class='order-state'>
+      <view>
+        <view class='order-img'>
+          <image src='/images/car01.png'></image>
+        </view>
+      </view>
+      <view class='express' bindtap='goRecord'>
+        <text class='express-error'>查看往期出版记录</text>
+      </view>
+      <view class='check-next'>
+        <text class='arrow'></text>
+      </view>
+    </view>
+    <view class='express-information'>
+      <view class='consignee'>
+        <view class='order-img'>
+          <image src='/images/address01.png'></image>
+        </view>
+        <text>收货人：{{address.name}}</text>
+        <view class='order-img-phone'>
+          <image src='/images/phone01.png'></image>
+        </view>
+        <view>{{address.parentMobile}}</view>
+      </view>
+      <view class='address'>
+        <view>收货地址：</view>
+        <text>{{address.address}}</text>
+      </view>
+      <view class='people'>
+        <view class='order-img'>
+          <image src='/images/people01.png'></image>
+          <text>{{address.schoolName}}</text>
+        </view>
+        <view class='grade-name'>
+          <text>{{address.klass}}</text>
+          <text>{{address.parentName}}</text>
+        </view>
+      </view>
+
+    </view>
+  </block>
+  <view class='subscribe-lists'>
+    <view class='magazine'>
+      <view class='left'>
+        <view class='magazine-img'>
+          <image src='{{magazineData.magazineCoverUrl}}'></image>
+        </view>
+      </view>
+      <view class='right'>
+        <view class='magazine-title'>{{magazineData.magazineName}}</view>
+        <view class='magazine-time'>
+          订阅周期：{{magazineData.subscribePlanPeriod}}
+          <text>丨</text> 出版周期：{{magazineData.subscribePlanPublishPeriod}}
+        </view>
+        <view class='magazine-nper'>
+          <!-- {{magazineData.startPeriod}}~{{magazineData.endPeriod}}期( -->
+          {{filter.formatDate1(magazineData.beginTime)}}~{{filter.formatDate1(magazineData.endTime)}}
+          <!-- ) -->
+        </view>
+        <view class='magazine-money'>
+          <text class='price'>￥{{magazineData.price/100}}</text>
+          <text class='num'>X{{magazineData.number}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='check'>
+      <!-- <view>
+        <text class='now'>本期：{{magazineData.thisTimes==0?magazineData.startPeriod:magazineData.thisTimes}}期</text>
+        <text class='next'>下期：{{magazineData.thisTimes==0?magazineData.startPeriod+1:magazineData.thisTimes+1}}期</text>
+      </view> -->
+    </view>
+  </view>
+  <view class='express-menu'>
+    <view class='express-menu-total'>
+      <text>合计：</text>
+      <text>￥{{total/100}}</text>
+    </view>
+    <!-- <view class='express-menu-message'>
+          <text>买家留言：</text>
+          <text>啦啦啦啦啦啦啦啦啦啦啦啦</text>
+      </view> -->
+  </view>
+  <view class='express-order'>
+    <view class='express-order-number'>
+      <text>订单号：</text>
+      <text> {{address.orderNo}}</text>
+    </view>
+    <view class='express-order-time'>
+      <text>下单时间：</text>
+      <text> {{filter.formatDate3(address.createTime)}}</text>
+    </view>
+  </view>
+  <!-- 从未发货 -->
+  <!-- 已发货 -->
+  <view wx:if="{{magazineData.status !== 3 &&magazineData.status !== 4}}" class='details-bottom' bindtap="goAddress">
+    <button>修改收货地址</button>
+  </view>
+  <!-- 已完成 -->
+  <view wx:elif="{{magazineData.status == 3 || magazineData.status == 4 }}" class='details-bottom' bindtap="goEvaluation">
+    <button class='evaluation'>评价</button>
+  </view>
+</view>

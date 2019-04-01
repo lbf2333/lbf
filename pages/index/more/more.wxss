@@ -1,0 +1,224 @@
+/* pages/search/result/result.wxss */
+@import '/pages/template/magazineItem/magazineItem';
+
+.no-search {
+  width: 639rpx;
+  height: 70rpx;
+  background: rgba(247, 247, 247, 1);
+  border-radius: 35rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: rgba(210, 210, 210, 1);
+  margin: 35rpx auto 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-search image {
+  width: 41rpx;
+  height: 41rpx;
+  margin-right: 7rpx;
+}
+
+.order-filter {
+  height: 99rpx;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: rgba(138, 137, 137, 1);
+}
+
+.order-filter .item {
+  flex: 1;
+  height: 37rpx;
+  line-height: 37rpx;
+}
+
+.order-filter .item.active {
+  font-weight: bold;
+  color: rgba(255, 170, 86, 1);
+}
+
+.order-filter .condition-item.active .line {
+  opacity: 1;
+}
+
+.order-filter .condition-item .context {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-filter .condition-item image {
+  width: 16rpx;
+  height: 20rpx;
+  margin-left: 5rpx;
+}
+
+.order-filter .item .line {
+  opacity: 0;
+  margin: 6rpx auto 0;
+  display: block;
+  width: 32rpx;
+  height: 2px;
+  background: linear-gradient(-41deg, rgba(250, 151, 84, 1), rgba(255, 191, 117, 1));
+}
+
+.order-filter .filter {
+  border-left: 2px solid rgba(191, 191, 191, 0.5);
+}
+
+.magazine-list {
+  padding: 0 30rpx 100rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.magazine-list .magazine {
+  margin-bottom: 30rpx;
+}
+
+.no-data {
+  margin-top: 322rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 26rpx;
+  font-weight: 500;
+  color: rgba(211, 210, 210, 1);
+}
+
+.no-data image {
+  width: 170rpx;
+  height: 136rpx;
+  margin-bottom: 26rpx;
+}
+
+.modal-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dialog-content {
+  width: 572rpx;
+  margin-left: auto;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  padding-top: 36rpx;
+  box-sizing: border-box;
+}
+
+.dialog-content  .content {
+  margin: 0 30rpx;
+  padding-bottom: 150rpx;
+}
+
+.dialog-content .content  .types {
+  margin-bottom: 50rpx;
+}
+.dialog-content .content  .series {
+   margin-top: 46rpx;
+}
+.dialog-content .content  .subjects {
+   margin-top: 46rpx;
+}
+.dialog-content .content .values {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.dialog-content .content .value-box {
+  width: 160rpx;
+  height: 88rpx;
+  box-sizing: border-box;
+  background: rgba(246, 246, 245, 1);
+  border-radius: 6rpx;
+  margin-right: 16rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  /* flex: none; */
+  align-items: center;
+  justify-content: center;
+  padding: 18rpx 12rpx;
+  color: rgba(89, 89, 89, 1);
+  text-align: center;
+}
+
+.dialog-content .content .value-box.active {
+  background: rgba(254, 218, 180, 0.3);
+  color: rgba(255, 177, 96, 1);
+}
+
+.dialog-content .content .value-box:nth-child(3n) {
+  margin-right: 0;
+}
+
+.dialog-content .content .value {
+  /* width: 132rpx; */
+  font-size: 22rpx;
+  line-height: 28rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: left;
+}
+
+.dialog-content .content .grade-item {
+  margin-bottom: 8rpx;
+}
+
+.dialog-content .content  .label {
+  margin-bottom: 30rpx;
+  font-size: 30rpx;
+  color: rgba(28, 28, 28, 1);
+  font-weight:bold;
+}
+
+.dialog-content .content .grades .label {
+  margin-bottom: 44rpx;
+}
+
+.dialog-content .content  .item-label {
+  margin-bottom: 18rpx;
+  font-size: 26rpx;
+  color: rgba(147, 147, 147, 1);
+}
+
+.dialog-content  .footer {
+  position: fixed;
+  width: 572rpx;
+  bottom: 0;
+  display: flex;
+}
+
+.dialog-content .footer button {
+  flex: 1;
+  height: 98rpx;
+  line-height: 98rpx;
+  border-radius: 0;
+  font-size: 30rpx;
+}
+
+.dialog-content  .footer button.reset {
+  border-top: 1px solid rgba(255, 184, 107, 1);
+  color: rgba(255, 164, 84, 1);
+  background: #fff;
+}
+
+.dialog-content  .footer button.sure {
+  color: #fff;
+  background: linear-gradient(-41deg, rgba(250, 151, 84, 1), rgba(255, 191, 117, 1));
+}

@@ -1,0 +1,126 @@
+/**index.wxss**/
+@import '/pages/template/magazineItem/magazineItem';
+
+
+
+/* 关键字搜索框样式 */
+#KeySearchWrap{
+  margin : 35rpx 0 30rpx;
+  position: relative;
+}
+
+.search-key{
+  position: absolute;
+  width: 41rpx;
+  height: 41rpx;
+  left: 283rpx; top: 16rpx;
+}
+
+.KeySearch{
+  width: 639rpx;
+  height: 70rpx;
+  background: rgba(247,247,247,1);
+  border-radius: 35rpx;
+  text-align: center;
+  margin: 0 auto;
+  text-indent: 44rpx;
+}
+
+.KeySearch{
+  text-align: center;
+  font-size: 28rpx;
+  font-family:PingFang-SC-Medium;
+  line-height: 70rpx;
+  color: #ccc;
+}
+
+/* 轮播广告 */
+#CarouselBannerWrap{
+  /* background: skyblue; */
+}
+
+.bannerImg{
+  width:700rpx;
+  height:240rpx;
+  position: relative;
+  left: 23rpx;
+}
+
+.slide-image{
+  width:700rpx;
+  height:240rpx;
+  border-radius:8rpx;
+}
+
+/* 商品列表区 */
+.CatalogueWrap{
+  margin-top: 84rpx;
+}
+/* 商品列表名称分类 */
+
+.ShopTitleWrap{
+  position: relative;
+}
+
+.More{
+  position: absolute;
+  width:37rpx;
+  height:50rpx;
+  /* border: 1rpx solid red; */
+  display: flex;
+  justify-content: space-between;
+  right: 42rpx;bottom: 0rpx;
+}
+
+.More view{
+  margin-top: 23rpx;
+  width: 9rpx;
+  height: 10rpx;
+  background: #000;
+  border-radius: 50%;
+}
+.ShopTitleWrap{
+  text-align: center;
+}
+.ShopTitle{
+  hieght: 30rpx;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  font-size:32rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(48,48,48,1);
+  line-height: 30rpx;
+}
+
+.ShopTitle::before{
+  content: '';
+  position: absolute;
+  width:52rpx;
+  border:2rpx solid rgba(14,5,9,1);
+  right: -90rpx; top: 20rpx;
+}
+
+.ShopTitle::after{
+  content: '';
+  position: absolute;
+  width:52rpx;
+  border:2rpx solid rgba(14,5,9,1);
+  left: -90rpx; top: 20rpx;
+}
+
+/* 商品列表主体样式区 */
+.magazine-list {
+  width: 100%;
+  padding: 56rpx 0 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.magazine-list .magazine {
+  margin-bottom: 30rpx;
+  margin-right: 30rpx;
+}

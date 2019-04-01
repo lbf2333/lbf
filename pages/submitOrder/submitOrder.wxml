@@ -1,0 +1,60 @@
+<!--pages/submitOrder/submitOrder.wxml-->
+
+<wxs src="../../utils/filter.wxs" module='filter' />
+<view>
+  <view class='shippingAddress-unselected' wx:if='{{!delivery}}'>
+    <image src='/images/land.png'></image>
+    <view bindtap='goModify'>新建收货地址</view>
+  </view>
+  <view class='shippingAddress-selected' wx:else>
+    <view class='botton-layer'>
+      <image class='det-img' src='/images/land.png'></image>收货人：
+      <text style='margin-right: 124rpx;'>{{delivery.parentName}}</text>
+      <image class='phone-img' src='/images/phone01.png'></image>
+      <text>{{delivery.phone}}</text>
+    </view>
+
+    <view class='site-detail' bindtap='goaddress'>
+      <view><text class='site-det'>收货地址：</text></view> <text class='site-detail-text'>{{delivery.schoolVo.address}}</text>
+      <image class='arrow-img' src='/images/arrow.png' class='after-arrow'></image>
+    </view>
+    <view class='school-mes'>
+      <image class='link-img' src='/images/linkman.png'></image>
+      <text>{{delivery.schoolVo.name}}</text> 
+      <view>
+        <text> {{delivery.klass}}</text>
+        <text> {{delivery.studentName}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='spacer-layer'></view>
+  <view class='shoppingList' wx:for='{{shoplist}}' wx:key='{{index}}'>
+      <image class='ShopListImg' src='{{item.magazineCoverUrl}}'></image>
+      <view class='ShopListText'>
+        <view class='shop-name'><text>{{item.magazineName}}</text></view>
+        <text class='send-per'>订阅周期：{{item.subscribePlanPeriod}}</text>
+        <text class='send-time'>出版周期：{{item.subscribePlanPublishPeriod}}</text>
+        <view class='buy-time'>
+        <!-- {{item.beginPublishedTime}}~{{item.endPublishedTime}}期（ -->
+        {{filter.formatDate1(item.beginDate)}} ~{{filter.formatDate1(item.endDate)}}
+        <!-- ） -->
+        </view>
+        <view class='pricer-top'><text class='shop-price'>￥{{filter.fixPrice(item.price)}}</text> <text class='shop-num'>X{{item.count}}</text></view>
+      </view> 
+  </view> 
+  <view class='spacer-layer'></view>
+  <!-- <view class='messageBoard'>
+    <text>给商家留言：</text> 
+    <textarea></textarea>
+  </view> -->
+  <view class='all-shop'>
+    <text class='all-num'>共{{allNum}}件商品</text>合计：<text class='all-price'>￥{{filter.fixPrice(allPrice)}}</text>
+  </view>
+  <view style='height: 200rpx'></view>
+  <view class='spacer-layer'></view>
+  <view class='fixd-bottom'>
+    <view>合计：<text>￥{{filter.fixPrice(allPrice)}}</text></view> <view><button type='submit' 
+    bindtap="goOrderSuccessfully">立即订购</button></view>
+  </view>
+</view>
+  

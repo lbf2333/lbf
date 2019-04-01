@@ -1,0 +1,90 @@
+var fixPrice = function (val) {
+  var value = val/100;
+  return value.toFixed(2);
+}
+var two = function (data) {
+  if (data < 10) {
+    return '0' + data
+  }
+  return data;
+}
+var formatDate1 = function (timestamp, option) {
+  console.log(timestamp)
+  var date = getDate(timestamp);
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  month = two(month)
+  day = two(day)
+  return year + '/' + month + '/' + day;
+}
+var formatDate2 = function (timestamp, option) {
+  console.log(timestamp)
+  var date = getDate(timestamp);
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  return month + '月' + day + '日';
+}
+var formatDate3 = function (timestamp, option) {
+  console.log(timestamp)
+  var date = getDate(timestamp);
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+  month = two(month)
+  day = two(day)
+  hour = two(hour)
+  minute = two(minute)
+  second = two(second)
+  return year + '-' + month + '-' + day + ' ' + hour + ":" + minute + ":" + second;
+}
+var formatDate4 = function (timestamp, option) {
+  console.log(timestamp)
+  var date = getDate(timestamp);
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+  month = two(month)
+  day = two(day)
+  hour = two(hour)
+  minute = two(minute)
+  second = two(second)
+  return year + '年' + month + '月' + day + '日 ' + hour + ":" + minute + ":" + second;
+}
+var formatDate5 = function (timestamp, option) {
+  console.log(timestamp)
+  var date = getDate(timestamp);
+  console.log(date);
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  month = two(month)
+  day = two(day)
+  return year + '.' + month + '.' + day;
+}
+
+var formatDate6 = function (timestamp, option) {
+  console.log(timestamp)
+  var date = getDate(timestamp);
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  return year+ '年' + month + '月' + day + '日';
+}
+
+module.exports = {
+  fixPrice:fixPrice,
+  formatDate1: formatDate1,
+  formatDate2: formatDate2,
+  formatDate3: formatDate3,
+  formatDate4: formatDate4,
+  formatDate5: formatDate5,
+  formatDate6: formatDate6
+}

@@ -1,0 +1,64 @@
+/* pages/edit/edit.wxss */
+
+.edit-list {
+  width: 682rpx;
+  margin: 40rpx auto 0;
+}
+
+.edit-item {
+  padding: 40rpx 38rpx;
+  border-bottom: 1px solid rgba(191, 191, 191, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edit-item image {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.edit-input {
+  font-size: 30rpx;
+  flex: 1;
+  font-weight: bold;
+  color: rgba(48, 48, 48, 1);
+}
+
+.input-ph {
+  font-weight: bold;
+  color: rgba(223, 223, 223, 1);
+}
+
+.label {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: rgba(191, 191, 191, 1);
+}
+
+.edit-phone-btn {
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: rgba(255, 234, 211, 1);
+  border-radius: 29rpx;
+  font-size: 26rpx;
+  font-weight: 500;
+  color: rgba(255, 175, 94, 1);
+  padding: 0;
+  margin: 0;
+}
+
+.edit-btn {
+  margin: auto;
+  margin-top: 204rpx;
+  width: 554rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: linear-gradient(-22deg, rgba(250, 151, 84, 1), rgba(255, 191, 117, 1));
+  border-radius: 44rpx;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: rgba(249, 248, 244, 1);
+}

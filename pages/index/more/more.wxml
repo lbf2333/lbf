@@ -1,0 +1,83 @@
+<!--pages/search/result/result.wxml-->
+<wxs module="checkbox">
+  var checkStatus = function(arr, item) {
+    //console.log(arr,item)
+    return arr.indexOf(item) >= 0
+  };
+  module.exports.checkStatus = checkStatus;
+</wxs>
+<import src="/pages/template/magazineItem/magazineItem" />
+
+<view class='no-search' catchtap='toSearch' wx:if="{{!searchedKey}}">
+  <image src='/images/search.png'></image>
+  <text>搜索关键字</text>
+</view>
+<view class='order-filter'>
+  <block wx:for="{{orders}}" wx:key="index">
+    <view catchtap='orderTab' data-value="{{item.value}}" class="condition-item item {{orderType == item.value? 'active':''}}">
+      <view class='context'>
+        <text>{{item.label}}</text>
+        <image wx:if="{{item.value==4}}" src="{{orderType!=item.value?'/images/lifting.png':priceOrder==1?'/images/asc.png':'/images/des.png'}}"></image>
+      </view>
+      <text class='line'></text>
+    </view>
+  </block>
+  <view class="filter item {{filters.grades.length!=0||filters.categoryId ? 'active': ''}}" catchtap='toFilter'>
+    <text>筛选</text>
+    <text class='line'></text>
+  </view>
+</view>
+
+<block wx:if="{{magazines.length!=0}}"> 
+  <view class='magazine-list'>
+    <view class='magazine' wx:for="{{magazines}}" wx:key="index">
+      <template is="magazineItem" data="{{...item}}"/>
+    </view>
+  </view>
+</block>
+<block wx:else>
+  <view class='no-data'>
+    <image src='/images/null.png'></image>
+    <text>什么都没找到，可以重新筛选试试</text>
+  </view>
+</block>
+
+<view class="modal-dialog" catchtap="noSubmit" hidden="{{!showFilter}}" catchtouchmove="preventTouchMove">
+  <scroll-view class='dialog-content' scroll-y catchtap="preventTouchMove">
+    <view class='content'>
+      <view class='grades'>
+        <view class='label'>选择年级</view>
+        <view class='grade-item' wx:for="{{grades}}" wx:key="index">
+          <view class='item-label'>{{item.name}}</view>
+          <view class='values'>
+            <block wx:for="{{item.subCategories}}" wx:key="index" wx:for-item="child">
+              <view class="value-box {{checkbox.checkStatus(filters.grades, child.id) ?'active':''}}" data-grade="{{child.id}}" catchtap='selectGrade'>
+                <text class='value'>{{child.name}}</text>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+      <view class='series' hidden='{{filters.type!=1}}'>
+        <view class='label'>选择系列</view>
+        <view class='values'>
+          <view class="value-box {{filters.categoryId==item.id ?'active':''}}" wx:for="{{series}}" wx:key="index" data-id="{{item.id}}" data-type="serie" catchtap='select'>
+            <text class='value'>{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='subjects' hidden='{{filters.type!=2}}'>
+        <view class='label'>选择科目</view>
+        <view class='values'>
+          <view class="value-box {{filters.categoryId==item.id ?'active':''}}" wx:for="{{subjects}}" wx:key="index" data-id="{{item.id}}" data-type="subject" catchtap='select'>
+            <text class='value'>{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='footer' catchtouchmove="preventTouchMove">
+      <button class='reset' catchtap='reset'>重置</button>
+      <button class='sure' catchtap='filter'>确定</button>
+    </view>
+  </scroll-view>
+</view>

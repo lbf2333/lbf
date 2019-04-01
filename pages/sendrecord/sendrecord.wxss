@@ -1,0 +1,159 @@
+/* pages/sendrecord/sendrecord.wxss */
+page{
+  background:#F9F8F4
+}
+.send-lists{
+  background-color: #FFFFFF
+}
+.send .magazine{
+  display: flex;
+  border-bottom:1rpx solid #EEEEEE;
+  margin: 0 52rpx 0;
+  padding: 29rpx 0
+}
+
+.send .magazine-img{
+  width:174rpx;
+  height:236rpx;
+  background-color: #000
+}
+.send .magazine-img>image{
+  width:100%;
+  height:100%;
+}
+.send .right{
+ padding-left: 26rpx;
+ width: 100%;
+}
+.send .magazine-title{
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:#292928;
+   overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.send .magazine-time{
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:#999999;
+  margin-top: 20rpx;
+}
+.send .magazine-nper{
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:#999999;
+  margin-top: 15rpx;
+}
+.send .magazine-money{ 
+  padding-top: 30rpx;
+  display: flex
+}
+.send .magazine-money .price{
+  color: #FFAA56;
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+}
+.send .magazine-money .num{
+  flex: 1;
+  text-align: right;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  line-height: 50rpx
+}
+.send .evaluation-name{
+  position: relative;
+  margin: 61rpx 0 0 ;
+  text-align: center;
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:#CAC7C5;
+}
+.send-name>view{
+  position: absolute;
+  width:52rpx;
+  height:3rpx;
+  background:#CAC7C5 ;
+}
+.send-xd{
+  margin-top:42rpx; 
+  padding-bottom: 120rpx;
+
+}
+.send-xd-i{
+  display: flex;
+  margin-top: 24rpx ;
+}
+.record-lists{
+  background-color: #fff;
+  border-radius:10rpx; 
+  width: 100%;
+  margin-right:5%;
+}
+.record-lists .send-time{
+  display: flex;
+  margin: 0 35rpx;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #EEEEEE;
+}
+.record-lists .send-time>text:nth-child(1){
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(49,49,49,1);
+}
+.record-lists .send-time>text:nth-child(2){
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(197,197,197,1);
+  padding-left: 10rpx;
+}
+.record-lists .send-addres{
+  padding: 20rpx 35rpx;
+}
+.record-lists .send-addres>text{
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:#313131;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+.time-vertical{
+  margin: auto 27rpx;
+  position: relative;
+}
+.send-xd .send-xd-i:nth-child(1) .time-vertical .icon{
+  width:23rpx;
+  height:23rpx;
+  background:linear-gradient(-28deg,rgba(250,151,84,1),rgba(255,191,117,1));
+  border-radius:50%;
+}
+.send-xd .send-xd-i .time-vertical .icon{
+  width:23rpx;
+  height:23rpx;
+  background:rgba(220,217,213,1);
+  border-radius:50%;
+}
+.icon-x{
+  width:2rpx;
+  height:167rpx;
+  background: #CCCCCC;
+  position: absolute;
+  opacity: 0.3;
+  left: 12rpx;
+  top: 35rpx;
+}
+.send-xd .send-xd-i:last-child .time-vertical .icon-x{
+  display: none
+}

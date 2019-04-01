@@ -1,0 +1,193 @@
+<!--pages/shopcart/shopcart.wxml-->
+<!-- <wxs module="checkbox">
+  var checkStatus = function(arr, item) {
+    //console.log(arr,item)
+    return arr.indexOf(item) >= 0
+  };
+  module.exports.checkStatus = checkStatus;
+</wxs> -->
+<view wx:if="{{shoplist.length>0}}">
+  <view class='conten'>
+    <view class='num'>
+      <text>购物车共<text>{{count}}</text>本书籍</text>
+      <text bindtap='administration' wx:if="{{show}}">管理</text>
+      <text bindtap='complete' wx:if="{{!show}}">完成</text>
+    </view>
+    <view class='shop'>
+      <block wx:key="{{index}}" wx:for="{{shoplist}}">
+        <view class='shop-des' data-magazineId='{{item.magazineId}}'>
+          <view class='shop-conten'>
+            <view data-index="{{index}}" bindtap='toggle' class='ck' wx:if="{{!item._show}}"></view>
+            <image data-index="{{index}}" bindtap='toggle' class='checked' src='../../images/checked.png' wx:if="{{item._show}}"></image>
+            <view class='pic'>
+              <image src='{{item.magazineCoverUrl}}'></image>
+            </view>
+            <view class='maz-des'>
+              <view class='name'>{{item.magazineName}}</view>
+              <view class='time'>
+                <view>出版周期:
+                  <text>{{item.subscribePlanPublishPeriod}}</text>
+                </view>
+                <view>|</view>
+                <view>定刊周期:
+                  <text>{{item.subscribePlanPeriod}}</text>
+                  <!-- <image src='../../images/jiantou.png' data-index="{{index}}"  bindtap='showModal'></image> -->
+                </view>
+              </view>
+              <view class='price'>
+                <view class='money'>￥
+                  <text>{{item.price/100}}</text>
+                </view>
+                <view class='number'>
+                
+                  <image src='../../images/subtract.png' data-id="{{item.cartItemId}}" class='red {{item.number <= 1 ? "disabled" : "normal"}}' data-value="{{item.count}}" data-index="{{index}}" bindtap='reduce'></image>
+                  <input data-id="{{item.cartItemId}}" type='number' class='amount' data-index="{{index}}" value='{{item.count}}' bindblur='changeNum'></input>
+                  <image src='../../images/add.png' data-id="{{item.cartItemId}}"  class='add' data-index="{{index}}" data-value="{{item.count}}" bindtap='addition'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 结算 -->
+  <view class='Handle' wx-if="{{show}}">
+    <view class='all-election'>
+      <view class="all" bindtap='selectAll' wx:if="{{!selectAllStatus}}"></view>
+      <image wx:if="{{selectAllStatus}}" bindtap='selectAll' src='../../images/checked.png'></image>
+      <text>全选</text>
+    </view>
+    <view class='search'>
+
+    </view>
+    <view class='Collection'>
+      合计:
+      <text>￥</text>
+      <text>{{totalPrice}}</text>
+    </view>
+    <view class='Settlement' bindtap='settlement'>
+      结算
+    </view>
+  </view>
+  <!-- 删除 -->
+  <view class='delete' wx:if="{{!show}}">
+    <view class='all-election'>
+      <view class="all" bindtap='selectAll' wx:if="{{!selectAllStatus}}"></view>
+      <image wx:if="{{selectAllStatus}}" bindtap='selectAll' src='../../images/checked.png'></image>
+      <text>全选</text>
+    </view>
+    <view class='search' bindtap='enpyt'>
+      <image src='../../images/qingkong.png'></image>
+      <text>清空</text>
+    </view>
+    <view class='Collection' bindtap='collect'>
+      移入收藏夹
+    </view>
+    <view class='Settlement' bindtap='deleteList'>
+      删除
+    </view>
+  </view>
+</view>
+<view class='enpyt' wx:if="{{shoplist.length<=0}}">
+  <image src='../../images/kongcart.png'></image>
+  <view>购物车空空的快去逛逛吧</view>
+</view>
+
+ <!--弹出框外套 -->
+      <!-- <view catchtouchmove="preventTouchMove">
+        <view class="bottom-wrap" bindtap="hideModal" wx:if="{{showModalStatus}}"></view> -->
+        <!--弹出框盒子 --> 
+        <!-- <view class="bottom-box" animation="{{animationData}}" wx:if="{{showModalStatus}}">
+          <view class='boxImagePrice' >
+            <image src='/images/img-example.jpg'></image>
+            <view class='boxPrice'>
+              <text class='box-price'>￥100.00</text>
+              <view></view>
+              <text class='box-hint'>请选择订刊周期和数量</text>
+            </view> -->
+            <!-- 订刊周期 -->
+          <!-- </view>
+          <view class='box-wrap'>
+              <scroll-view scroll-y='true' class='box-overflow'>
+                <view class='box-time'>
+                <text>订刊周期</text> -->
+                <!-- 周期选择 -->
+                <!-- <view class='flex-time'>
+                  <view>一季</view><view>半年</view><view>一年</view><view>一年啦</view>
+                  <view>一季</view><view>半年</view><view>一年</view><view>一年啦</view>
+                </view>
+                </view> -->
+                
+                <!-- <view class='send-out'>
+                  <text>发货周期</text>
+                  <view>您将收到第一期为第xxx期，将于XX月XX日左右发货，隔一月发一次（距离发货人日前X天的订单在下个月发货）</view>
+                </view>
+              
+              
+              </scroll-view> -->
+              
+            
+            <!-- <view class='box-num'>
+              <text>购买数量</text>
+              <view>
+                <view class='num-ctrl'bindtap='addNum'>+</view>
+                <view class='bottom-num'><input type='number' value='{{shopNum}}'></input></view>
+                <view class='num-ctrl' bindtap='minNum'>-</view>
+              </view>
+            </view>
+            <view class='box-suspend'>
+              <view>
+                <button class='box-cart' bindtap='goCat'>确定</button>
+                
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view catchtouchmove="preventTouchMove">
+        <view class="bottom-wrap" bindtap="catHideModal" wx:if="{{ModalStatus}}"></view> -->
+        <!--弹出框盒子 --> 
+        <!-- <view class="bottom-box" animation="{{animationData}}" wx:if="{{ModalStatus}}">
+          <view class='boxImagePrice' >
+            <image src='/images/img-example.jpg'></image>
+            <view class='boxPrice'>
+              <text class='box-price'>￥100.00</text>
+              <view></view>
+              <text class='box-hint'>请选择订刊周期和数量</text>
+            </view> -->
+            <!-- 订刊周期 -->
+          <!-- </view>
+          <view class='box-wrap'>
+            <view class='box-time'>
+                <text>订刊周期</text> -->
+                <!-- 周期选择 -->
+                <!-- <view class='flex-time'>
+                  <view>一季</view><view>一季</view><view>一季</view><view>一年啦</view>
+                  <view>一季</view><view>一季</view><view>一季</view><view>一年啦</view>
+                </view>
+              </view> -->
+           
+            <!-- <view class='send-out'>
+              <text>发货周期</text>
+              <view>您将收到第一期为第xxx期，将于XX月XX日左右发货，隔一月发一次（距离发货人日前X天的订单在下个月发货）</view>
+            </view>
+            <view class='box-num'>
+              <text>购买数量</text>
+              <view>
+                <view class='num-ctrl' bindtap='addNum'>+</view>
+                <view class='bottom-num'><input bindinput='changesNum' type='number' value='{{shopNum}}'></input></view>
+                <view class='num-ctrl' bindtap='minNum'>-</view>
+                
+              </view>
+            </view>
+            <view class='box-suspend'>
+              <view id='box-car-buy'>
+                <button>确定</button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view> -->
+     

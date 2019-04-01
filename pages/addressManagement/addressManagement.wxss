@@ -1,0 +1,35 @@
+/* pages/addressManagement/addressManagement.wxss */
+
+page {
+  background: rgba(249, 248, 244, 1);
+  height: 100%;
+}
+
+.call {
+  text-align: center;
+}
+
+.call image {
+  width: 179rpx;
+  height: 108rpx;
+  margin-top: 213rpx;
+  margin-left: 30rpx;
+}
+
+.call view {
+  color: #d3d2d2;
+  font-size: 26rpx;
+  margin-top: 23rpx;
+}
+
+.call button {
+  border: none;
+  margin-top: 83rpx;
+  width: 300rpx;
+  height: 80rpx;
+  font-size: 30rxp;
+  color: #f9f8f4;
+  line-height: 80rpx;
+  background: linear-gradient(rgba(250, 151, 84, 1), rgba(255, 191, 117, 1));
+  border-radius: 80rpx;
+}

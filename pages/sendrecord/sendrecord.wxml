@@ -1,0 +1,51 @@
+<!--pages/sendrecord/sendrecord.wxml-->
+<wxs src="../../utils/filter.wxs" module='filter' />
+<view class='send'>
+<view  class='send-lists'>
+      <view class='magazine'>
+        <view class='left'>
+          <view class='magazine-img'>
+            <image src='{{sendrecordData.magazineCoverUrl}}'></image>
+          </view>
+        </view>
+        <view class='right'>
+          <view class='magazine-title'>{{sendrecordData.magazineName}}</view>
+          <view class='magazine-time'>
+                  订阅周期：{{sendrecordData.subscribePlanPeriod}}
+              <text>丨</text>
+                  出版周期：{{sendrecordData.subscribePlanPublishPeriod}}
+          </view>
+          <view class='magazine-nper'>
+            <!-- {{sendrecordData.startPeriod}}~{{sendrecordData.endPeriod}}期( -->
+            {{filter.formatDate1(sendrecordData.beginTime)}}~{{filter.formatDate1(sendrecordData.endTime)}}
+            <!-- ) -->
+          </view>
+          <view class='magazine-money'>
+              <text class='price'>￥{{sendrecordData.price/100}}</text>
+              <text class='num'>X{{sendrecordData.number}}</text>
+          </view>
+        </view>
+      </view>
+   </view>
+   <view class='send-xd'>
+    <block wx:for="{{sendrecord}}" wx:key wx:for-item="list">
+    <view class='send-xd-i'>
+      <view class='time-vertical'>
+          <view class='icon'></view>
+          <view class="icon-x"></view>
+      </view>
+      <view class='record-lists'>
+          <view class='send-time'>
+          <!-- 第{{list.times}}期 -->
+            <text>出版时间：</text>
+            <text>{{filter.formatDate4(list.deliveryTime)}}</text>
+          </view>
+          <view class='send-addres'>
+            <text>地址：</text>
+            <text>{{list.address}}</text>
+          </view>
+      </view>
+    </view>
+    </block>
+   </view>
+</view>

@@ -1,0 +1,290 @@
+<!--pages/detail/detail.wxml-->
+<wxs src="../../utils/filter.wxs" module='filter' />
+<import src="../../wxParse/wxParse.wxml" />
+<view>
+    <view class='deailImagesWrap'>
+      <swiper class='detailImages' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{magazineCoverUrl}}" wx:key='{{index}}'>
+          <swiper-item>
+            <image src="{{item}}" data-src="{{item}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <scroll-view scroll-y="true">
+        <view class="detail">
+          <text class="title">{{magazineName}}</text>
+          <button class='share' open-type='share'>
+            <view>
+              <image src='/images/share.png'></image>
+              <text>分享</text>
+            </view>  
+          </button>
+        </view>
+        <view class='detail-price-num'>
+          <text class='detail-price'>￥{{filter.fixPrice(price)}}</text>
+          <text class='detail-num'>订阅{{detailsub}}</text>
+        </view>
+        <!-- 规格选择 -->
+        <view class='bgc'>
+          <view class='Specification' bindtap='showModal'>
+            <text>规格</text><text>请选择</text><image src='/images/arrow.png'></image>
+          </view>
+        </view>
+        <!--  商品详情/评价 -->
+        <view class="detailTabCtrl {{menuFixed ? 'fixed': ''}}" id="fix">
+          <view id='Per' class='{{shy?"detailTabClick" : "detailNomal"}}' bindtap='shy'>期刊详情</view>
+          <view id='Eva' class='{{riook?"detailTabClick" : "detailNomal"}}' bindtap='riook' >积累评价</view>
+        </view>
+
+        <view class='detailTabCont'>  
+          <view class='descriptionWrap {{riook?"detHidd" : "detShow"}}'>
+            <text class='description'>刊期描述</text>
+            <view class='descriptionCont'>
+            <view class='article'>
+              <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+            </view>
+            </view>
+          </view>
+          <view class='{{shy?"detHidd" : "detShow"}}'>
+          
+            <view class='rating'>
+              <view class="{{type == 0?'onrat':''}}" catchtap='selectType' data-type="0">全部<text></text></view>
+              <view class="{{type == 1?'onrat':''}}" catchtap='selectType' data-type="1">好评<text></text></view>
+              <view class="{{type == 2?'onrat':''}}" catchtap='selectType' data-type="2">中评<text></text></view>
+              <view class="{{type == 3?'onrat':''}}" catchtap='selectType' data-type="3">差评<text></text></view>
+            </view>
+            
+            <view wx:if='{{detEva!=0}}' class='rating-cont' wx:for='{{detEva}}' wx:key='{{index}}'>
+              <view class='ratingL'>
+                <image class='UserImg' src="{{item.headUrl}}"></image>
+              </view>
+
+              <view class='ratingR'>
+                <text class='UserName'>{{item.username}}</text>
+                <text class='ratingTime'>{{filter.formatDate5(item.time)}}</text>
+                <!-- <text class='ratingTime' style='margin-left: 30rpx;'>订阅周期：</text> -->
+                <view class='ratStar' >
+                  <block wx:if='{{item.star>0}}'>
+                  <block wx:for='{{item.star-0}}'>
+                   <image src='/images/add-on.png'></image>
+                  </block>
+                  </block>
+                  <block wx:if='{{item.star < 5}}'>
+                  <block wx:for='{{5-item.star-0}}'>
+                  <image src='/images/add-off.png' style='margin-left: 10rpx;'></image>
+                  </block>
+                  </block>
+                </view>
+                
+                <view class='ratText'>
+                  {{item.content}}
+                </view>
+
+              </view>
+            </view>
+            <view wx:if='{{detEva==0}}' class='cont-null'>
+              <image src='/images/null-eva.png'></image>
+              <view><text>暂无评价</text></view>
+            </view>
+          </view>
+        </view>
+    </scroll-view>
+    
+    <!-- 底部悬浮栏 -->
+    <view class="detail-nav">
+      <view class='navIconWrap'>
+      <button hidden='{{true}}'>
+        <view>
+          <image bindtap="service" src="/images/service.png" />
+         <text>客服</text>
+        </view>
+      </button >
+        <view class='go-home' bindtap="goHome">
+          <image src="/images/detail-home.png" />
+          <text>主页</text>
+        </view>
+        <view class='add-like' bindtap='addLike' >
+           <image
+           src="{{collect == isLike?'/images/addlike.png' : '/images/addlike-on.png'}}" />
+           <text>收藏</text>
+        </view>
+        <view class='cart' bindtap="toCar">
+          <image src="/images/go-cart.png" />
+          <text>购物车</text>
+        </view>
+      </view>
+      <view>
+        <button class="button-car" bindtap="catShowModal" formType="submit" >加入购物车</button>
+        <button class="button-buy" bindtap="buyShowModal" formType="submit">立即订购</button>
+      </view>
+
+
+      <!--弹出框外套 -->
+      <view catchtouchmove="preventTouchMove">
+        <view class="bottom-wrap" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+        <!--弹出框盒子 --> 
+        <view class="bottom-box" animation="{{animationData}}" wx:if="{{showModalStatus}}">
+          <view class='boxImagePrice' >
+            <image src='{{magazineCoverUrl[0]}}'></image>
+            <view class='boxPrice'>
+              <text class='box-price'>￥{{filter.fixPrice(showPrice)}}</text>
+              <view></view>
+              <text class='box-hint'>请选择订刊周期和数量</text>
+            </view>
+            <!-- 订刊周期 -->
+          </view>
+          <view class='box-wrap'>
+              <scroll-view scroll-y='true' class='box-overflow'>
+                <view class='box-time'>
+                <text>订刊周期</text>
+                <!-- 周期选择 -->
+                <view class='flex-time'>
+                  <view 
+                  wx:key = '{{index}}'
+                  wx:for = '{{subscribePlanMVos}}'
+                  class="{{boxIndex  == item.id ? 'selected' : 'not-selected' }}"
+                  data-id='{{item.id}}' 
+                  bindtap='boxbox'>
+                    {{item.name}}
+                  </view>
+                </view>
+                </view>
+                
+                <view class='send-out'>
+                  <text>出版周期</text>
+                  <view class='send-text'>{{deliveryCycle}}</view>
+                </view>
+              
+              
+              </scroll-view>
+              
+            
+            <view class='box-num'>
+              <text class='num-str'>购买数量</text>
+              <view>
+               
+                <view class='num-ctrl' bindtap='minNum'><image src='/images/subtract.png'></image></view>
+                <view class='bottom-num'><input type='number' value='{{count}}' bindblur='shopNums'></input></view>
+                <view class='num-ctrl'bindtap='addNum'><image src='/images/add.png'></image></view>
+              </view>
+            </view>
+            <view class='box-suspend'>
+              <view>
+                <button class='box-cart' bindtap="goCat" formType="submit" data-type="1">{{boxIndex?"加入购物车":"暂无订阅方案"}}</button>
+                <button class='box-buy'  bindtap='immeBuy' formType="submit"  data-type="1">{{boxIndex?"立即订购":"暂无订阅方案"}}</button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+      <!--加入 购物车 -->
+      <view catchtouchmove="preventTouchMove">
+        <view class="bottom-wrap" bindtap="catHideModal" wx:if="{{ModalStatus}}"></view>
+        <!--弹出框盒子 --> 
+        <view class="bottom-box" animation="{{animationData}}" wx:if="{{ModalStatus}}">
+          <view class='boxImagePrice' >
+            <image src='{{magazineCoverUrl[0]}}'></image>
+            <view class='boxPrice'>
+              <text class='box-price'>￥{{filter.fixPrice(showPrice)}}</text>
+              <view></view>
+              <text class='box-hint'>请选择订刊周期和数量</text>
+            </view>
+            <!-- 订刊周期 -->
+          </view>
+          <view class='box-wrap'>
+            <view class='box-time'>
+                <text>订刊周期</text>
+                <!-- 周期选择 -->
+                <view class='flex-time'>
+                  <view 
+                  wx:key='{{index}}'
+                  wx:for = '{{subscribePlanMVos}}'
+                  class="{{boxIndex  == item.id ? 'selected' : 'not-selected'}}" 
+                  data-id='{{item.id}}' 
+                  bindtap='boxbox'>
+                  {{item.name}}
+                  </view>
+                </view>
+              </view>
+           
+            <view class='send-out'>
+              <text>出版周期</text>
+              <view class='send-text'>{{deliveryCycle}}</view>
+            </view>
+            <view class='box-num'>
+              <text class='num-str'>购买数量</text>
+              <view>
+                <view class='num-ctrl' bindtap='minNum'><image src='/images/subtract.png'></image></view>
+                <view class='bottom-num'><input type='number' value='{{count}}' bindblur='shopNums'></input></view>
+                <view class='num-ctrl'bindtap='addNum'><image src='/images/add.png'></image></view>
+              </view>
+            </view>
+            <view class='box-suspend'>
+              <view class='box-car-buy'>
+                <button bindtap="goCat"  formType="submit" data-type="2">{{boxIndex?"确定":"暂无订阅方案"}}</button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+
+
+      <!--立即 订购 -->
+      <view catchtouchmove="preventTouchMove">
+        <view class="bottom-wrap" bindtap="buyHideModal" wx:if="{{buyModalStatus}}"></view>
+        <!--弹出框盒子 --> 
+        <view class="bottom-box" animation="{{animationData}}" wx:if="{{buyModalStatus}}">
+          <view class='boxImagePrice' >
+            <image src='{{magazineCoverUrl[0]}}'></image>
+            <view class='boxPrice'>
+              <text class='box-price'>￥{{filter.fixPrice(showPrice)}}</text>
+              <view></view>
+              <text class='box-hint'>请选择订刊周期和数量</text>
+            </view>
+            <!-- 订刊周期 -->
+          </view>
+          <view class='box-wrap'>
+            <view class='box-time'>
+                <text>订刊周期</text>
+                <!-- 周期选择 -->
+                <view class='flex-time'>
+                  <view
+                  wx:key='{{index}}'
+                  wx:for= '{{subscribePlanMVos}}'
+                  class="{{boxIndex  == item.id ? 'selected' : 'not-selected'}}" 
+                  data-id='{{item.id}}' 
+                  bindtap='boxbox'>
+                  {{item.name}}
+                  </view>
+                </view>
+              </view>
+           
+            <view class='send-out' >
+              <text>出版周期</text>
+              <view class='send-text'>{{deliveryCycle}}</view>
+            </view>
+            <view class='box-num'>
+              <text class='num-str'>购买数量</text>
+              <view>
+                <view class='num-ctrl' bindtap='minNum'><image src='/images/subtract.png'></image></view>
+                <view class='bottom-num'><input type='number' value='{{count}}' bindblur='shopNums'></input></view>
+                <view class='num-ctrl'bindtap='addNum'><image src='/images/add.png'></image></view>
+                
+              </view>
+            </view>
+            <view class='box-suspend'>
+              <view class='box-car-buy'>
+                <button bindtap='immeBuy' formType="submit" data-type="2"> {{boxIndex?"确定":"暂无订阅方案"}} </button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+     
+    </view>
+</view>

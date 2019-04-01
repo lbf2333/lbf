@@ -1,0 +1,45 @@
+<!--pages/addIformation/addIformation.wxml-->
+<view class='address'>
+  <text class='left'>选择收货地址</text>
+  <text class='right' bindtap='increase'>+新增收货地址</text>
+</view>
+
+<view class='add-content'>
+  <block wx:key="{{index}}" wx:for="{{list}}">
+    <view class='add-des' data-id='{{item.schoolVo.schoolId}}'>
+      <view class='in-use' wx:if="{{item.defaultAddress}}">使用中</view>
+      <view class='icons'>
+        <image src='../../images/error.png' data-index="{{index}}" bindtap="deletes"  data-id='{{item.id}}'></image>
+        <image src='../../images/write.png' bindtap='modify' data-index="{{index}}"  data-id='{{item.id}}'></image>
+      </view>
+      <view class='information'>
+        <view class='character'>
+          <view class='name'>{{item.parentName}}</view>
+          <view class='phone'>
+            <image src='../../images/phone.png'></image>
+            <text>{{item.phone}}</text>
+          </view>
+        </view>
+        <view class='harvest-address'>
+          <view class='locattion'>
+            <image src='../../images/cat.png'></image>
+            <text>收货地址：</text>
+          </view>
+          <view class='real-address'>
+            {{item.schoolVo.address}}
+          </view>
+        </view>
+        <view class='heng'></view>
+        <view class='school'>
+          <image src='../../images/school.png'></image>
+          <text>{{item.schoolVo.name}}</text>
+          <text>{{item.klass}}</text>
+          <text>{{item.studentName}}</text>
+        </view>
+      </view>
+      <view class='Use-add'>
+        <view class='Use' wx:if="{{!item.defaultAddress}}" data-index="{{index}}" data-id='{{item.id}}' bindtap="use">使用地址</view>
+      </view>
+    </view>
+  </block>
+</view>

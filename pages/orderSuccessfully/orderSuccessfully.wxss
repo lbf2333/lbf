@@ -1,0 +1,120 @@
+/* pages/orderSuccessfully/orderSuccessfully.wxss */
+.background-img{
+  width: 100%;
+  height: 312rpx;
+  position: absolute;
+  z-index: -1;
+}
+
+/* 成功信息通知区 */
+.notice{
+  width: 100%;
+  height: 250rpx;
+  /* background: skyblue; */
+}
+.notice button{
+  width:181rpx;
+  height:61rpx;
+  border: 1rpx solid #fff;
+  border-radius:30rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color: #fff;
+  background: rgba(255,255,255,0);
+  line-height: 61rpx;
+}
+.notice-top{
+  display: flex;
+  justify-content: space-between;
+}
+.notice image{
+  width: 35rpx;
+  height: 35rpx;
+  position: absolute;
+  top: 40rpx;
+  right: 14rpx;
+}
+.orderImg{
+  width: 118rpx;
+  height: 139rpx;
+  position: relative;
+}
+.orderText{
+  width: 560rpx;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(255,255,255,1);
+  margin-top: 41rpx;
+  margin-right: 71rpx;
+}
+.notice-button{
+  width: 416rpx;
+  margin-left: 163rpx;
+  margin-top: 11rpx;
+  display: flex;
+}
+.notice-button button::after{
+  border: none;
+}
+
+/* 订阅成功的商品 */
+.order-shop{
+  width:638rpx;
+  height:301rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:3rpx 6rpx 13rpx 3rpx rgba(36,36,35,0.07);
+  border-radius:20rpx;
+  margin: 0 auto;
+  padding: 44rpx 46rpx 42rpx 52rpx;
+  display: flex;
+  box-sizing: border-box;
+  margin-bottom: 29rpx;
+}
+.order-shop image{
+  width:156rpx;
+  height:215rpx;
+}
+
+.order-shop .shop-text{
+  width: 324rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(41,41,40,1);
+  margin-left: 33rpx;
+  position: relative;
+}
+.shop-text image{
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 12rpx;
+  position: relative;
+  top: 5rpx;
+}
+.shop-text>view:nth-child(1){
+  margin-top: 55rpx;
+}
+.bold{
+  font-weight: bold;
+}
+.marginTop{
+  margin-top: 35rpx;
+}
+.margin-top{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 31rpx;
+  width: 332rpx;
+}
+.num{
+  height:19rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(41,41,41,1);
+  position: absolute;
+  right: -40rpx;
+  top: 80rpx;
+}

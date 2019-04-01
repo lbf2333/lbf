@@ -1,0 +1,229 @@
+/* pages/modify/modify.wxss */
+
+page {
+  background: rgba(249, 248, 244, 1);
+  padding-left: 29rpx;
+  padding-right: 30rpx;
+  box-sizing: border-box;
+}
+
+.heng {
+  border-bottom: 1rpx solid rgba(191, 191, 191, .3);
+}
+
+.font {
+  width: 150rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #2E2E2E;
+}
+.tishi{
+  font-size: 28rpx;
+  color: #C2C2C2;
+}
+
+.send {
+  font-size: 26rpx;
+  padding: 32rpx 0 34rpx 0;
+  color: #666666;
+}
+
+.choice {
+  width: 690rpx;
+  height: 288rpx;
+  padding: 0 28rpx;
+  box-sizing: border-box;
+  margin-bottom: 18rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 10rpx;
+}
+
+.choice-school {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.choice-school .school {
+  width: 460rpx;
+  font-size: 28rpx;
+  color: #2E2E2E;
+  /* margin-right: 428rpx; */
+}
+.tishi{
+  width: 460rpx;
+  font-size: 28rpx;
+  color: #C2C2C2;
+}
+.allName{
+  font-size: 28rpx;
+  color: #2E2E2E;
+}
+.icon {
+  width: 14rpx;
+  height: 26rpx;
+  color: #ccc;
+  font-size: 40rpx;
+  font-family: "黑体";
+}
+
+.choice-des {
+  display: flex;
+  line-height: 96rpx;
+}
+
+.choice-des input {
+  padding-top: 23rpx;
+  padding-right: 20rpx;
+  font-size:28rpx;
+  color:#2E2E2E;
+}
+
+.choice-tow {
+  width: 690rpx;
+  height: 192rpx;
+  padding: 0 28rpx;
+  box-sizing: border-box;
+  margin-bottom: 18rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 10rpx;
+}
+
+.get-num {
+  width: 250rpx;
+  height: 60rpx;
+  margin-top: 15rpx;
+  background:  linear-gradient(rgba(255, 191, 117, 1) ,rgba(250, 151, 84, 1) );
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  color: rgba(249, 248, 244, 1);
+}
+
+.btn {
+  width: 555rpx;
+  height: 90rpx;
+  font-size: 30rpx;
+  margin-top: 150rpx;
+  line-height: 90rpx;
+  background: linear-gradient(rgba(255, 191, 117, 1), rgba(250, 151, 84, 1));
+  border-radius: 45rpx;
+  color: #F9F8F4;
+}
+/* 班级弹框 */
+
+.modals {
+  padding: 0 !important;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modals-cancel {
+  padding: 0 !important;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,.3);
+}
+
+.bottom-dialog-body {
+  padding: 0 !important;
+  position: absolute;
+  z-index: 10001;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 815rpx;
+  border-radius: 30rpx  30rpx   0px  0px;
+  background-color: #fff;
+}
+
+/*动画前初始位置*/
+
+.bottom-pos {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+.grade{
+  font-size: 30rpx;
+  text-align: center;
+  font-weight:bold;
+  margin-bottom: 61rpx;
+  margin-top: 30rpx;
+}
+.studentStatus{
+  display: flex;
+  font-size: 28rpx;
+  font-weight: bold;
+  justify-content: space-evenly;
+}
+.boder-block{
+  border-bottom: 4rpx solid #FA9754;
+  }
+.boder-none{
+  
+}
+/* .dian{
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+.dian view{
+width:40rpx;
+height:4rpx;
+margin-top: 8rpx;
+background:linear-gradient(rgba(250,151,84,1),rgba(255,191,117,1));
+} */
+.dian view:nth-of-type(1){
+  margin-left: 5rpx;
+}
+.dian view:nth-of-type(2){
+  margin-left: 15rpx;
+}
+/* 选择年级 */
+.school {
+  display: flex;
+}
+.Primary{
+  margin-top: 31rpx;
+}
+.selective-grade{
+  margin:0 234rpx 32rpx 87rpx;
+}
+.selective-grade text{
+width:75rpx;
+height:25rpx;
+font-size:26rpx;
+}
+.show{
+color:rgba(255,170,86,1);
+}
+.hide{
+  
+}
+.selective-grade image{
+  width:13rpx;
+  height:23rpx;
+  margin-left: 26rpx;
+}
+/* 选择班级 */
+.class{
+  font-size: 26rpx;
+  margin-top: 47rpx;
+}
+.class view{
+  margin:0 0 32rpx 0;
+
+}
+.division{
+  width:100%;
+height:20rpx;
+margin-top: 16rpx;
+background:rgba(249,248,244,1);
+}

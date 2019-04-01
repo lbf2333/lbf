@@ -1,0 +1,81 @@
+<!--pages/modify/modify.wxml-->
+<view class='send'>送寄学校方便通知家长（便于学校统计与发放）</view>
+<view class='choice'>
+  <view class='choice-cont'>
+    <view class="choice-school choice-des heng" bindtap='searchSchool'>
+      <view class="font">选择学校：</view>
+      <text class="tishi" wx:if="{{!schoolName}}">选择学校</text>
+      <view class="school" wx:else>{{schoolName}}</view>
+      <image class='icon' src='../../images/arrow.png'></image>
+      <!-- <view class='icon'>></view> -->
+    </view>
+    <view class="choice-school choice-des heng">
+      <view class="font">班级：</view>
+      <text class="tishi" bindtap="showModal" wx:if="{{!allName}}" >选择班级</text>
+      <text class='school' bindtap="showModal"  wx:else >{{allName}}</text>
+      <image class='icon' src='../../images/arrow.png'></image>
+      <!-- <view class='icon'>></view> -->
+      <!-- <input bindfocus="showModal" placeholder='选择班级，例三年一班' value='{{allName}}' placeholder-style="font-size:28rpx; color:#C2C2C2;"></input> -->
+    </view>
+
+    <view class="choice-des">
+      <view class="font" >学生姓名：</view>
+      <input bindinput='studentName' value="{{studentName}}" placeholder='输入学生姓名' placeholder-style="font-size:28rpx; color:#C2C2C2;"></input>
+    </view>
+  </view>
+</view>
+
+<view class='choice-tow'>
+  <view class='choice-cont'>
+    <view class="choice-des heng">
+      <view class="font">家长：</view>
+      <input placeholder='输入家长姓名' bindinput='parentName' value='{{parentName}}' placeholder-style="font-size:28rpx; color:#C2C2C2;"></input>
+    </view>
+
+    <view class="choice-des">
+      <view class="font" style="width:300rpx;" >家长联系电话：</view>
+      <input placeholder='输入手机号' type="number"  bindinput='phoneNumber' value='{{phoneNumber}}' placeholder-style="font-size:28rpx; color:#C2C2C2;"></input>
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class='get-num'>获取手机号</button>
+    </view>
+  </view>
+</view>
+
+<button class="btn" bindtap='deter'>确定</button>
+<!-- 班级弹框 -->
+<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
+  <view class="modals-cancel" bindtap="hideModal"></view>
+  <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+    <view class='grade'>
+    选择年级
+    </view>
+    <view class='studentStatus'>
+      <text wx:if="{{smallGrade.length != 0}}" class='{{studentStatus?"boder-block":"boder-none"}}' bindtap='swtchschool'>小学</text>
+      <text wx:if="{{middleGrade.length != 0}}" class='{{!studentStatus?"boder-block":"boder-none"}}' bindtap='swtchschool'>初中</text>
+    </view>
+    <view class='division'></view>
+    <!-- 小学 -->
+    <view class='school' wx:if="{{studentStatus}}">
+      <view class="Primary">
+        <view class='selective-grade' wx:key="{{index}}" wx:for="{{smallGrade}}">
+          <text bindtap='swichClass' data-index="{{index}}" data-name="{{item.grade}}" class='{{index==gradeIndexs ?"show":"hide"}}' bindtap='swichClass'>{{item.grade}}</text>
+          <image wx:if="{{index==gradeIndexs}}" src='../../images/class.png'></image>
+        </view>
+      </view>
+      <view class='class'>
+        <view wx:key="{{index}}" data-index="{{index}}" bindtap='selectionClass' class='{{index==classIndexs ?"show":"hide"}}' wx:for="{{smallGrade[gradeIndexs].maxClass}}" data-name="{{item}}">{{item}}</view>
+      </view>
+    </view>
+    <!-- 初中 -->
+    <view class='school' wx:if="{{!studentStatus}}">
+     <view class="Primary">
+        <view class='selective-grade' wx:key="{{index}}" wx:for="{{middleGrade}}">
+          <text catchtap='swichMClass' data-index="{{index}}" data-name="{{item.grade}}" class='{{index==gradeIndexs-6 ?"show":"hide"}}' bindtap='swichClass'>{{item.grade}}</text>
+          <image wx:if="{{index==gradeIndexs-6}}" src='../../images/class.png'></image>
+        </view>
+      </view>
+      <view class='class'>
+        <view wx:key="{{index}}" data-index="{{index}}" catchtap='selectionMClass' class='{{index==classIndexs ?"show":"hide"}}' wx:for="{{middleGrade[gradeIndexs-6].maxClass}}" data-name="{{item}}">{{item}}</view>
+      </view>
+    </view>
+  </view>
+</view>

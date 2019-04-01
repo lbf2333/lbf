@@ -1,0 +1,69 @@
+<!--pages/collection/collection.wxml-->
+<!-- 标签栏tab -->
+<view class="collection_tab">
+  <view>
+    <text class="{{currenttab==='1'?'tab_item_active':'tab_item'}}" data-tabid="1" bindtap='selectTab'>杂志<block wx:if="{{ magazineData.length > 0}}">（{{magazinemaxsize}})</block></text>
+  </view>
+  <text>/</text>
+  <view>
+    <text class="{{currenttab==='2'?'tab_item_active':'tab_item'}}" data-tabid="2" bindtap='selectTab'>辅导资料<block wx:if="{{ coachmaxsize > 0}}">（{{coachmaxsize}}）</block></text>
+  </view>
+</view>
+<!--杂志  -->
+<view hidden="{{currenttab != 1 }}">
+  <block wx:if="{{ magazineData.length > 0  }}">
+    <view class='books-lists'>
+      <view wx:for-index='key' wx:for="{{magazineData}}" wx:key wx:for-item="list" class='books-i'>
+        <view bindtap='goMagazinedetail' data-mid="{{list.magazineId}}">
+          <view class='books_img'>
+            <image src='{{list.magazineCover}}'></image>
+          </view>
+          <view class='books_title'>{{list.title}}</view>
+          <view class='books_num'>
+            <text class='price'>￥{{list.cheapestPrice/100}}</text>
+            <text class='num' wx:if="{{ magazineData.subscribeCount !== 0}}">订阅{{list.subscribeCount}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:elif="{{ magazineData.length === 0 }}">
+    <view class='collection-error'>
+      <view class='collection-error-img'>
+        <image src='/images/collection-error.png'></image>
+      </view>
+      <view class='collection-error-font'>
+        <text>这里空空的什么都没有，快去添加收藏吧</text>
+      </view>
+    </view>
+  </block>
+</view>
+<!--辅导资料 -->
+<view hidden="{{currenttab != 2 }}">
+  <block wx:if="{{ coachData.length > 0  }}">
+    <view class='books-lists'>
+      <view wx:for-index='key' wx:for="{{coachData}}" wx:key wx:for-item="list" class='books-i'>
+        <view bindtap='goCoachDatadetail' data-cid="{{list.magazineId}}">
+          <view class='books_img'>
+            <image src='{{list.magazineCover}}'></image>
+          </view>
+          <view class='books_title'>{{list.title}}</view>
+          <view class='books_num'>
+            <text class='price'>￥{{list.cheapestPrice/100}}</text>
+            <text class='num' wx:if="{{ magazineData.subscribeCount !== 0}}">订阅{{list.subscribeCount}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:elif="{{ coachData.length === 0 }}">
+    <view class='collection-error'>
+      <view class='collection-error-img'>
+        <image src='/images/collection-error.png'></image>
+      </view>
+      <view class='collection-error-font'>
+        <text>这里空空的什么都没有，快去添加收藏吧</text>
+      </view>
+    </view>
+  </block>
+</view>

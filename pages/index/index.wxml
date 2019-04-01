@@ -1,0 +1,53 @@
+<!--index.wxml-->
+<import src="/pages/template/magazineItem/magazineItem" />
+<view class='IndexWrap'>
+  <!-- 头部搜索框 -->
+  <view id='KeySearchWrap' >
+    <image class='search-key' src='/images/key-search.png'></image>
+    <view class='KeySearch' bindtap='toSearch'>搜索关键字</view>
+  </view>
+  <!-- 轮播图区 -->
+  <!-- <view id='CarouselBannerWrap'>
+    <swiper indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+        <swiper-item class='bannerImg'>
+          <image src="{{item}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view> -->
+  <!-- 商品列表 -->
+  <view class='CatalogueWrap'>
+    <!-- 列表分类头 -->
+    <view class='ShopTitleWrap'>
+      <view class='ShopTitleWrap'><text class='ShopTitle'>杂志</text></view>
+      <view class='More' bindtap='magazineMore'>
+        <view></view><view></view><view></view>
+      </view>
+    </view>
+    <!-- 商品列表信息 -->
+      <view class='magazine-list'>
+        <view class='magazine' wx:for="{{magazines}}" wx:key="index">
+          <template is="magazineItem" data="{{...item}}"/>
+        </view>
+      </view>
+    
+  </view>
+  <view class='CatalogueWrap'>
+    <!-- 列表分类头 -->
+    <view class='ShopTitleWrap'>
+      <view><text class='ShopTitle'>辅导材料</text></view>
+      <view class='More' bindtap='tasMore'>
+        <view></view><view></view><view></view>
+      </view>
+    </view>
+    <!-- 商品列表信息 -->
+    <view class='magazine-list'>
+        <view class='magazine' wx:for="{{tas}}" wx:key="index">
+          <template is="magazineItem" data="{{...item}}"/>
+        </view>
+      </view>
+    
+  </view>
+</view>

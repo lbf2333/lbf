@@ -1,0 +1,9 @@
+<!--pages/upimg/upimg.wxml-->
+<import src="../../../we-cropper/dist/we-cropper.wxml" />
+<view class="cropper-wrapper">
+  <template is="we-cropper" data="{{...cropperOpt}}" />
+  <view class='cropper-buttons'>
+    <view class='buttons-item' bindtap='uploadTap'>选择图片</view>
+    <view class='buttons-item' bindtap='getCropperImage'>确定</view>
+  </view>
+</view>

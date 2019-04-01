@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/subscribe/subscribe",
+    "pages/addressInformation/addressInformation",
+    "pages/modify/modify",
+    "pages/collection/collection",
+    "pages/my/my",
+    "pages/index/more/more",
+    "pages/detail/detail",
+    "pages/search/search",
+    "pages/login/login",
+    "pages/addressManagement/addressManagement",
+    "pages/searchSchool/searchSchool",
+    "pages/cart/cart",
+    "pages/evaluation/evaluation",
+    "pages/subscribedetails/subscribedetails",
+    "pages/sendrecord/sendrecord",
+    "pages/submitOrder/submitOrder",
+    "pages/my/edit/edit",
+    "pages/my/uploadImg/uploadImg",
+    "pages/orderSuccessfully/orderSuccessfully"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "红领巾书架",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "selectedColor": "#FFAF5E",
+    "color": "#DFDBD8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "订阅",
+        "iconPath": "/images/magazine.png",
+        "selectedIconPath": "/images/magazine-s.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "/images/cart.png",
+        "selectedIconPath": "/images/cart-s.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "/images/my.png",
+        "selectedIconPath": "/images/my-s.png"
+      }
+    ]
+  }
+}

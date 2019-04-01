@@ -1,0 +1,117 @@
+<!--pages/subscribe/subscribe.wxml-->
+<wxs src="../../utils/filter.wxs" module='filter' />
+<!-- 标签栏tab -->
+<view class="subscribe_tab">
+  <block wx:for="{{tabs}}" wx:key="*this">
+    <view id="{{index}}" class="{{activeIndex == index ? 'tab_item_active':'tab_item'}}" bindtap="tabClick">
+    <text >{{item}}</text>
+    </view>
+  </block>
+</view>
+<!--订阅中  -->
+<view class='tabcontent' hidden="{{activeIndex != 0 }}">
+  <block wx:if="{{ notfinishData.length > 0  }}">
+    <view wx:for="{{notfinishData}}" wx:for-index='key' wx:key wx:for-item="list" class='subscribe-lists'>
+        <view bindtap='checkLogistics' id="{{list.id}}" class='magazine'>
+          <view class='left'>
+            <view class='magazine-img'>
+              <image src='{{list.magazineCoverUrl}}'></image>
+            </view>
+          </view>
+          <view class='right'>
+            <view class='magazine-title'>{{list.magazineName}}</view>
+            <view class='magazine-time'>
+                    订阅周期：
+                    {{list.subscribePlanPeriod}}
+                <text>丨</text>
+                    出版周期：
+                    {{list.subscribePlanPublishPeriod}}
+            </view>
+            <view class='magazine-nper'>
+               <!-- {{list.startPeriod}}~{{list.endPeriod}}期( -->
+               {{filter.formatDate1(list.beginTime)}}~{{filter.formatDate1(list.endTime)}}
+               <!-- ) -->
+            </view>
+            <view class='magazine-money'>
+                <text class='price'>￥{{list.price/100}}</text>
+                <text class='num'>X{{list.number}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='check'>
+          <view>
+            <text wx:if="{{ list.thisTimes !== 0  }}" class='success'>本期：{{list.thisTimes}}期 已出版</text>
+            <text wx:elif="{{ list.thisTimes === 0  }}" class='now'>本期：{{list.startPeriod}}期</text>
+            <text class='next'>下期：{{list.thisTimes == 0?list.startPeriod+1:list.thisTimes+1}}期</text>
+          </view>
+          <button bindtap='checkLogistics' id="{{list.id}}" class='check-logistics'>查看详情</button>
+        </view>
+    </view>
+  </block>
+  <block wx:elif ="{{ notfinishData.length === 0 }}">
+      <view class='subscribe-error'>
+        <view class='subscribe-error-img'>
+          <image src='/images/subscribe-error.png'></image>
+        </view>
+        <view class='subscribe-error-font'>
+            <text>暂时没有订单哦</text>
+        </view>
+      </view>
+  </block>
+  <!-- <view class='loading' hidden='{{hasmore}}'>
+      没有更多了
+  </view> -->
+</view>
+<!--订阅完成 -->
+<view class='tabcontent'  hidden="{{activeIndex != 1 }}" >
+  <block wx:if="{{ finishData.length > 0  }}">
+      <view class='subscribe-lists'  wx:for-index='key' wx:key wx:for="{{finishData}}" wx:for-item="list">
+          <view bindtap="checkLogistics" id="{{list.id}}" class='magazine'>
+            <view class='left'>
+              <view class='magazine-img'>
+                <image src='{{list.magazineCoverUrl}}'></image>
+              </view>
+            </view>
+            <view class='right'>
+              <view class='magazine-title'>{{list.magazineName}}</view>
+              <view class='magazine-time'>
+                      订阅周期：
+                      {{list.subscribePlanPeriod}}
+                  <text>丨</text>
+                      出版周期： 
+                      {{list.subscribePlanPublishPeriod}}
+              </view>
+              <view class='magazine-nper'>
+               <!-- {{list.startPeriod}}~{{list.endPeriod}}期( -->
+               {{filter.formatDate1(list.beginTime)}}~{{filter.formatDate1(list.endTime)}}
+               <!-- ) -->
+            </view>
+              <view class='magazine-money'>
+                  <text class='price'>￥{{list.price/100}}</text>
+                  <text class='num'>X{{list.number}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='check'>
+            <view class='state'>
+              订阅已完成
+            </view>
+            <button bindtap="goEvaluation" data-in="{{key}}" id="{{list.id}}" class='evaluation' wx:if="{{list.status==3}}">评价</button>
+            <button bindtap="goEvaluation" data-in="{{key}}" id="{{list.id}}" class='check-evaluation'  wx:elif="{{list.status==4}}">查看评价</button>
+          </view>
+      </view>
+   </block>
+   <block wx:elif ="{{ finishData.length === 0 }}">
+      <view class='subscribe-error'>
+        <view class='subscribe-error-img'>
+          <image src='/images/subscribe-error.png'></image>
+        </view>
+        <view class='subscribe-error-font'>
+            <text>暂时没有订单哦</text>
+        </view>
+      </view>
+  </block>
+  <!-- <view class='loading' hidden='{{hasmore}}'>
+      没有更多了
+  </view> -->
+</view>

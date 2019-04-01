@@ -1,0 +1,161 @@
+page{
+  background:#F9F8F4
+}
+.evaluation .evaluation-lists{
+  background-color: #FFFFFF
+}
+.evaluation .magazine{
+  display: flex;
+  border-bottom:1rpx solid #EEEEEE;
+  margin: 0 52rpx 0;
+  padding: 29rpx 0
+}
+
+.evaluation .magazine-img{
+  width:174rpx;
+  height:236rpx;
+  background-color: #000
+}
+.evaluation .magazine-img>image{
+  width:100%;
+  height:100%;
+}
+.evaluation .right{
+ padding-left: 26rpx;
+ width: 100%;
+}
+.evaluation .magazine-title{
+  font-size:28rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:#292928;
+   overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.evaluation .magazine-time{
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:#999999;
+  margin-top: 20rpx;
+}
+.evaluation .magazine-nper{
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:#999999;
+  margin-top: 15rpx;
+}
+.evaluation .magazine-money{ 
+  padding-top: 30rpx;
+  display: flex
+}
+.evaluation .magazine-money .price{
+  color: #FFAA56;
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+}
+.evaluation .magazine-money .num{
+  flex: 1;
+  text-align: right;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  line-height: 50rpx
+}
+.evaluation .evaluation-name{
+  position: relative;
+  margin: 61rpx 0 0 ;
+  text-align: center;
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:#CAC7C5;
+}
+.evaluation-name>view{
+  position: absolute;
+  width:52rpx;
+  height:3rpx;
+  background:#CAC7C5 ;
+}
+.hx1{
+  top:20rpx;
+  left: 33%;
+}
+.hx2{
+  top:20rpx;
+  right: 33%;
+}
+.evaluation-name>text{
+
+}
+.evaluation .comment1-description{
+  margin: 41rpx;
+  display:flex;
+  flex-direction:row;
+}
+.evaluation .star-pos{
+  margin: 0 auto;
+  display:flex;
+  flex-direction:row;
+}
+.evaluation .stars{
+    width: 50rpx;
+    height: 50rpx;
+    margin-left: 30rpx;
+    transition: 600ms;
+}
+.evaluation .stars>image{
+    width: 100%;
+    height: 100%;
+}
+.evaluation .on{
+    width: 50rpx;
+    height: 50rpx;
+    transition: 1s;
+    transform: scale(1,1)
+}
+.container{
+  margin: 0 10%
+}
+
+.star-pos image{
+  width:52rpx;
+  height:50rpx;
+  padding-left: 30rpx;
+}
+.weui-cell__bd{
+  background-color: #fff;
+  padding: 35rpx 35rpx;
+}
+.evaluation .evaluation-textarea{
+  width: 100%;
+  height:400rpx;
+  font-size:24rpx;
+}
+.evaluation .btnSf{
+  width:555rpx;
+  height:88rpx;
+  margin:46rpx auto;
+  
+}
+.evaluation .btnSf button{
+  background:linear-gradient(-22deg,rgba(250,151,84,1),rgba(255,191,117,1));
+  color: #fff;
+  border-radius:44rpx;
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+
+}
+.evaluation .btnSf button:active{
+  background:#FA9754;
+  color: #fff;
+}
+.placeholdercolor{
+  color: #CAC7C5
+}

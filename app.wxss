@@ -1,0 +1,13 @@
+/**app.wxss**/
+@import "/wxParse/wxParse.wxss";
+page{
+  color:#292928;
+}
+
+button {
+  background: none;
+}
+
+button::after{
+  border: none;
+}

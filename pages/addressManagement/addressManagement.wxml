@@ -1,0 +1,6 @@
+<!--pages/addressManagement/addressManagement.wxml-->
+<view class='call'>
+  <image src='../../images/address.png'></image>
+  <view>你还没有收货地址</view>
+  <button bindtap='address'>新建收货地址</button>
+</view>

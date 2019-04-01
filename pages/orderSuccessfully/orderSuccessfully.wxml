@@ -1,0 +1,25 @@
+<!--pages/orderSuccessfully/orderSuccessfully.wxml-->
+<wxs src="../../utils/filter.wxs" module='filter' />
+<image class='background-img' src='/images/order-successfully.png'></image>
+<view class='notice'>
+  <view class='notice-top'>
+    <view class='orderImg'><image src='/images/1.png'></image></view>
+    <view class='orderText'><text>邮寄前我们将发信息通知，若需要更改收货地址，请到个人中心页/订阅详情页修改</text></view>
+  </view>
+  <view class='notice-button'>
+    <button bindtap='goHome'>返回首页</button>
+    <button bindtap='goSubscribe'>查看详情</button>
+  </view>
+</view>
+<view class='order-shop' wx:for='{{orderItemVos}}' wx:key='{{index}}'>
+  <image src='{{item.magazineCoverUrl}}'></image>
+  <view class='shop-text'>
+    <text>{{item.magazineName}}</text>
+    <view class='marginTop'><image src='/images/2.png'></image><text class='bold'>订阅周期：</text><text>{{item.subscribePlanPeriod}}</text><text class='num'>X{{item.number}}</text></view>
+    <view class='margin-top'>
+      <image src='/images/3.png'></image>
+      <text class='bold'>出版日期：</text>
+      <text>{{filter.formatDate5(item.nextDeliveryTime)}}</text>
+    </view>
+  </view>
+</view>

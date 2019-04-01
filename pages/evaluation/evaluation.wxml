@@ -1,0 +1,62 @@
+<!--pages/evaluation/evaluation.wxml-->
+<wxs src="../../utils/filter.wxs" module='filter' />
+<view class='evaluation'>
+   <view  class='evaluation-lists'>
+      <view class='magazine'>
+        <view class='left'>
+          <view class='magazine-img'>
+            <image src='{{evaluationData.magazineCoverUrl}}'></image>
+          </view>
+        </view>
+        <view class='right'>
+          <view class='magazine-title'>{{evaluationData.magazineName}}</view>
+          <view class='magazine-time'>
+                  订阅周期：{{evaluationData.subscribePlanPeriod}}
+              <text>丨</text>
+                  出版周期：{{evaluationData.subscribePlanPublishPeriod}}
+          </view>
+          <view class='magazine-nper'>
+              <!-- {{evaluationData.startPeriod}}~{{evaluationData.endPeriod}}期( -->
+              {{filter.formatDate1(evaluationData.beginTime)}}~{{filter.formatDate1(evaluationData.endTime)}}
+              <!-- ) -->
+          </view>
+          <view class='magazine-money'>
+              <text class='price'>￥{{evaluationData.price/100}}</text>
+              <text class='num'>X{{evaluationData.number}}</text>
+          </view> 
+        </view>
+      </view>
+   </view>
+   <view class='evaluation-name'>
+      <view class='hx1'></view>
+      <text>匿名评价</text>
+      <view class='hx2'></view>
+   </view>
+   <!--星星评价-->
+<view class="container">
+  <view class="comment1-description">
+    <view class="star-pos">
+      <block wx:for="{{star}}" wx:key="index">
+      <image catchtap='in_xin' id='{{index+1}}' data-in='use_sc2' src='/images/star-s.png'></image>
+      </block>
+      <block wx:for="{{two_2}}" wx:key="index">
+      <image catchtap='in_xin' id='{{index+1}}' data-in='use_sc' src='/images/star.png'></image>
+      </block>
+    </view> 
+  </view>
+<!-- <view>{{star}}星</view> -->
+<!--文本域  -->
+  <view class="evaluation_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea placeholder-class="placeholdercolor" disabled='{{commentsuccess}}' class="evaluation-textarea" bindinput="bindTextAreaChange" placeholder="说两句话吧......" value="{{content}}"  focus />
+      </view>
+    </view>
+  </view>
+<!--评价按钮  -->
+  <view hidden='{{commentsuccess}}' wx:if="{{evaluationData.status == 3}}" class="btnSf">
+    <button bindtap="bindSubmit">确定</button>
+  </view>
+</view>
+</view>
+

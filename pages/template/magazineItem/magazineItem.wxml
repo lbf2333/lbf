@@ -1,0 +1,12 @@
+<!--pages/template/magazineItem/magazineItem.wxml-->
+<wxs src="../../../utils/filter.wxs" module='filter' />
+<template name="magazineItem" >
+  <view class='magazine-item' catchtap='toDetail' data-id="{{id}}">
+    <image src='{{coverUrl}}'></image>
+    <view class='title'>{{title}}</view>
+    <view class='price-num'>
+      <text class='price'>￥{{filter.fixPrice(price)}}</text>
+      <text class='num' hidden='{{subscribeCount==0}}'>订阅{{subscribeCount}}</text>
+    </view>
+  </view>
+</template>

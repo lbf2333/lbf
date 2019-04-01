@@ -1,0 +1,45 @@
+<!--pages/my/my.wxml-->
+<view class='my-data'>
+  <view class='my-head'>
+    <view class='my-head-bg'>
+      <view class='my-head-img'>
+       <image src='{{myinfo.headUrl }}'></image>
+      </view>
+      <view class='my-head-change' bindtap="chooseimage">
+       <image src='/images/head-img.png'></image>
+      </view>
+    </view>
+    <view class='my-name'>
+        <text>{{myinfo.nickname}}</text>
+    </view>
+  </view>
+  <view class="my-flex-item">
+    <view  bindtap='goCollection' data-count="{{myinfo.favoriteCount}}"class="my-collect">
+        <text>我的收藏</text>
+        <text>{{myinfo.favoriteCount}}</text>
+    </view>
+    <view class="my-address" bindtap="goAddress">
+        <text>地址管理</text>
+        <text>{{myinfo.addressCount }}</text>
+    </view>
+    <view class='separator'></view>
+  </view>
+  <view class='my-subscribe'>
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+    <view class="subscribe-ing" bindtap='goSubscribeing'>
+      <view class="subscribe-bg">
+        <image src='/images/subscribe.png'></image>
+      </view>
+      <text>订阅中</text>
+    </view>
+    <view class='separator'></view>
+    <view class="subscribe-success" bindtap='goSubscribesuccess'>
+      <view class="subscribe-bg">
+        <image src='/images/subscribe-s.png'></image>
+      </view>
+      <text>订阅完成</text>
+    </view>
+  </view>
+</view>

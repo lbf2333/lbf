@@ -1,0 +1,18 @@
+<!--pages/edit/edit.wxml-->
+
+<view class='edit-list'>
+  <view class='edit-item'>
+    <input value="{{name}}" placeholder="输入昵称" placeholder-class="input-ph" class='edit-input' bindinput="changeName"></input>
+    <text class='label'>昵称</text>
+  </view>
+  <view class='edit-item'>
+    <image src='{{head}}' class='edit-img' catchtap='goUpImg'></image>
+    <text class='label'>头像</text>
+  </view>
+  <view class='edit-item'>
+    <input value="{{phone}}" placeholder="输入手机号" type="number" placeholder-class="input-ph" class='edit-input edit-phone' bindinput="changePhone"></input>
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class='edit-phone-btn'>获取手机号</button>
+  </view>
+</view>
+
+<view class='edit-btn' catchtap='saveInfo'>确定</view>

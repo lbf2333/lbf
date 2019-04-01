@@ -1,0 +1,473 @@
+/* pages/shopcart/shopcart.wxss */
+
+page {
+  background:rgba(249,248,244,1);
+  height: 100%;
+ 
+}
+/* 显示样式 */
+.block{
+  display: block;
+}
+.none{
+  display: none;
+}
+/* 禁用样式 */
+/*禁用样式*/  
+ .disabled{  
+    color: #ccc;  
+}  
+/*普通样式*/  
+ .normal{  
+    color: black;  
+}  
+.conten {
+  padding: 0 31rpx 100rpx 30rpx;
+}
+
+.num {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 33rpx;
+  padding-bottom: 34rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  color: rgba(41, 41, 40, 1);
+}
+
+.shop-des {
+  width: 689rpx;
+  height: 210rpx;
+  background: rgba(255, 255, 255, 1); 
+  border-radius: 10rpx;
+  padding: 30rpx 0 0 18rpx;
+  box-sizing: border-box;
+  margin-bottom: 30rpx;
+}
+
+.shop-conten {
+  display: flex;
+}
+
+.shop-conten .pic {
+  padding-left: 33rpx;
+  box-sizing: border-box;
+}
+
+.shop-conten .pic image {
+  vertical-align: top;
+  width: 111rpx;
+  height: 150rpx;
+}
+.shop-conten .checked{
+  margin-top: 62rpx;
+  height: 42rpx;
+  width: 42rpx;
+}
+.shop-des .ck {
+  border: 1rpx solid #8a8989;
+  margin-top: 62rpx;
+  border-radius: 50%;
+  height: 38rpx;
+  width: 38rpx;
+  /* background-image:url("../../images/checked.png");  */
+}
+/* .wx-checkbox-input 
+.shop-des .ck .wx-checkbox-input.wx-checkbox-input-checked{
+
+} */
+
+.maz-des {
+  padding-left: 19rpx;
+  box-sizing: border-box;
+}
+
+.maz-des .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 425rpx;
+  font-size: 26rpx;
+  padding-bottom: 25rpx;
+  box-sizing: border-box;
+  color: rgba(41, 41, 40, 1);
+}
+
+.time {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 15rpx;
+  width: 433rpx;
+  height: 46rpx;
+  font-size: 22rpx;
+  background: rgba(242, 242, 242, 1);
+  border-radius: 23rpx;
+  color: #8a8989;
+}
+
+.time image {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20rpx;
+  height: 11rpx;
+  margin-left: 15rpx;
+  box-sizing: border-box;
+}
+
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  width: 433rpx;
+  height: 46rpx;
+}
+
+.price .money {
+  font-size: 30rpx;
+  color: #FFAA56;
+}
+
+.number {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 161rpx;
+  height: 50rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border: 1px solid rgba(242, 242, 242, 1);
+  border-radius: 25rpx;
+}
+
+.number .add {
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.number .red {
+  width: 26rpx;
+  height: 26rpx;
+}
+
+.number .amount {
+  width: 61rpx;
+  border-right: 1px solid rgba(242, 242, 242, 1);
+  border-left: 1px solid rgba(242, 242, 242, 1);
+  font-size: 30rpx;
+}
+
+.Handle,.delete {
+  z-index: 100;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  width: 100%;
+  height: 96rpx;
+  background: rgba(255, 255, 255, 1);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.delete{
+}
+.Handle view,.delete view {
+  width: 25%;
+  line-height: 96rpx;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.all-election {
+  display: flex;
+  align-items: center;
+}
+
+.all-election .all {
+width:38rpx;
+height:38rpx;
+border-radius:50%;
+border:1rpx solid #8a8989;
+  margin: -1rpx 30rpx 0 45rpx;
+}
+.all-election image{
+  margin: -1rpx 30rpx 0 45rpx;
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.search image {
+  width: 28rpx;
+  height: 25rpx;
+  margin-top: -5rpx;
+  margin-right: 7rpx;
+  vertical-align: middle;
+}
+
+.Collection {
+  font-size: 30rpx;
+  
+}
+
+.Collection text{
+  color: rgba(255, 178, 98, 1);
+}
+.Settlement {
+  height: 98rpx;
+  font-size: 30px;
+  letter-spacing: 10rpx;
+  padding-left: 10rpx;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 1);
+  background: linear-gradient(-54deg, rgba(250, 151, 84, 1), rgba(250, 151, 84, 1), rgba(255, 191, 117, 1));
+}
+.delete {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.delete .Collection{
+  font-size: 30rpx;
+  border: none;
+  color: #FFB262;
+}
+/* 购物车为空是显示 */
+.enpyt{
+  width:100%;
+  height: 100%;
+  text-align: center;
+}
+.enpyt image{
+  width:179rpx;
+  height:177rpx;
+  margin-top: 384rpx;
+}
+.enpyt view{
+  color: #D3D2D2;
+  font-size: 26rpx;
+}
+
+
+/* 底部弹框 */
+/* .bottom-wrap {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #ccc;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+
+
+
+.bottom-box {
+  height: 880rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background:rgba(255,255,255,1);
+  border-radius:32rpx 32rpx 0rpx 0rpx;
+}
+.bottom-box image{
+  width:227rpx;
+  height:309rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:3rpx 6rpx 13rpx 3rpx rgba(36,36,35,0.07);
+  position: absolute;
+  left: 14rpx;top: -133rpx;
+}
+.bottom-box .boxImagePrice{
+  width:663rpx;
+  position: relative;
+  height: 221rpx;
+  border-bottom: 1rpx solid rgba(191,191,191,.3);
+  margin: 0 auto;
+
+}
+.boxImagePrice .boxPrice{
+  padding-top: 58rpx;
+  box-sizing: border-box;
+  margin-left: 301rpx;
+}
+.boxImagePrice .box-price{
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(255,170,86,1);
+  margin-top: 58rpx;
+  margin-bottom: 30rpx;
+}
+.boxImagePrice .box-hint{
+  font-size:26rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(178,178,178,1);
+}
+
+
+.box-time{
+  width:663rpx;
+  margin: 0 auto;
+  border-bottom: 1rpx solid rgba(191,191,191,.3);
+  padding
+  : 20rpx;
+  box-sizing: border-box;
+}
+.box-time text{
+  font-size:28rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(39,39,39,1);
+}
+.flex-time{
+  width: 588rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+.flex-time view{
+  width:126rpx;
+  height:60rpx;
+  background:rgba(246,246,246,1);
+  border-radius:10rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(137,137,137,1);
+  text-align: center;
+  line-height: 60rpx;
+  margin-top: 20rpx;
+}
+
+
+.send-out{
+  width:663rpx;
+  margin: 0 auto;
+  border-bottom: 1rpx solid rgba(191,191,191,.3);
+  padding: 29rpx 0 30rpx 12rpx;
+  box-sizing: border-box;
+}
+.send-out text{
+  font-size:28rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(39,39,39,1);
+  
+}
+.send-out view{
+  width: 601rpx;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color:rgba(137,137,137,1);
+  marign-top: 30rpx;
+  letter-spacing: -1rpx;
+} 
+
+.box-num{
+  width: 663rpx;
+  height: 86rpx;
+  margin: 0 auto;
+  border-bottom: 1rpx solid rgba(191,191,191,.3);
+  position: relative;
+  line-height: 86rpx;
+}
+.box-num>view{
+  width: 258rpx;
+  height: 44rpx;
+  position: absolute;
+  right: 0; top: 21rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.box-num>view>view{
+  width:80rpx;
+  height:44rpx;
+  background:rgba(246,246,246,1);
+  border-radius:4rpx;
+  text-align: center;
+  line-height: 44rpx;
+}
+.num-ctrl{
+  font-size:26rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(198,198,198,1);
+}
+.bottom-num{
+  font-size:24rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(143,143,143,1);
+}
+.bottom-num input{
+  text-align: center;
+  position: relative;
+  top: -3rpx;
+}
+
+
+
+
+.box-suspend{
+  width: 100%;
+  height: 97rpx;
+  position: fixed;
+  bottom: 0;left: 0;
+  border-top: 1rpx solid rgba(191,191,191,.3);
+  background: #fff;
+}
+.box-suspend view{
+  margin: 0 auto;
+  width: 673rpx;
+  height: 81rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 8rpx 0 0 0;
+  box-sizing: border-box;
+}
+.box-suspend button{
+  width:321rpx;
+  height:81rpx;
+  border:1px solid rgba(255,170,86,1);
+  border-radius:20rpx;
+  text-align: center;
+  line-height: 81rpx;
+}
+.box-suspend button::after{
+  border: none;
+}
+.box-suspend .box-cart{
+  font-size: 28rpx;
+width:680rpx;
+height:80rpx;
+background:linear-gradient(rgba(250,151,84,1),rgba(255,191,117,1));
+border-radius:20rpx;
+color:rgba(255,255,255,1);
+}
+
+#box-car-buy button{
+  width: 680rpx;
+  height: 80rpx;
+  background:linear-gradient(-11deg,rgba(250,151,84,1),rgba(255,191,117,1));
+  border-radius:20rpx;
+}
+
+.box-overflow{
+  height: 434rpx;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+} */

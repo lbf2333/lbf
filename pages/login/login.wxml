@@ -1,0 +1,15 @@
+<!--pages/login/login.wxml-->
+
+<image class='bg' src='/images/access-bg.png'></image>
+<view class='login-container'>
+  <image class='logo' src='/images/logo.png'></image>
+  <view class='text'>
+  <text class='title'>欢迎登录</text>
+    <text class='title'>红领巾书架需要你的授权</text>
+    <text>红领巾书架不会将你的信息提供给第三方</text>
+  </view>
+  <view class='btn-box'>
+    <image src='/images/access-btn-bg.png'></image>
+    <button hover-class="none" lang="zh_CN" open-type="getUserInfo" bindgetuserinfo="access">授权登录</button>
+  </view>
+</view>

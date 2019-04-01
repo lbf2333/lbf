@@ -1,0 +1,21 @@
+<!--pages/searSchchool/searSchchool.wxml-->
+<view class="search">
+  <image wx:if="{{flag}}" src="../../images/sou.png"></image>
+  <input bindinput='search' class="{{flag ? 'padding-max' : '.padding-min'}}" placeholder='输入学校名称' placeholder-style='font-size:28rpx;' >
+  </input>
+  <button bindtap='show'>搜索</button>
+</view>
+<view class='schools'>
+  <view class='school-list' bindtap='backEstablish' wx:key="{{index}}" wx:for="{{schools}}" data-name="{{item.name}}" data-id="{{item.id}}" data-address="{{item.address}}">
+    <view class='school-name'>{{item.name}}</view>
+    <view class='address'>
+    <image src='../../images/cat.png'></image>
+      <text>{{item.address}}</text>
+    </view>
+  </view>
+</view>
+<view class='kong' wx:if="{{show}}">
+  <image src='../../images/kongzhuangtai.png'></image>
+  <view>未找到学校，请联系客户/平台！</view>
+  <view>电话：000000000</view>
+</view>
